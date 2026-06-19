@@ -10,7 +10,7 @@ foodRouter.get('/', requireAuth, async (req, res) => {
 
   const foods = await prisma.food.findMany({
     where: {
-      userId: req.userId!,
+      userId: req.userId,
 
       name: {
         contains: search,
@@ -44,7 +44,7 @@ foodRouter.post('/', requireAuth, async (req, res) => {
       carbsPer100g,
       proteinPer100g,
       fatPer100g,
-      userId: req.userId!,
+      userId: req.userId,
     },
   });
 
